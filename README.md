@@ -1,11 +1,11 @@
 # Ansible Java Role
 
 [![Circle CI](https://circleci.com/gh/playlist-ansible/java.svg?style=shield)](https://circleci.com/gh/playlist-ansible/java)
-[![Galaxy](https://img.shields.io/badge/galaxy-playlist.java-blue.svg)](https://galaxy.ansible.com/list#/roles/2365)
+[![Galaxy](https://img.shields.io/badge/galaxy-playlist.java-blue.svg)](https://galaxy.ansible.com/list#/roles/3241)
 
 Manages installations of Java JREs and JDKs, supporting both OpenJDK and Oracle JRE and JDK 6, 7, and 8.
 
-## Requirements
+## Requirements and Dependencies
 
 None.
 
