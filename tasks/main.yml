@@ -3,9 +3,10 @@
 
 - name: install python-apt
   apt: pkg=python-apt state=present force=yes
+  when: "ansible_os_family == 'Debian'"
 
 - include: debian.yml
-  when: "ansible_distribution != 'Ubuntu'"
+  when: "ansible_distribution == 'Debian'"
 
 - include: ubuntu.yml
   when: "ansible_distribution == 'Ubuntu'"
@@ -20,13 +21,19 @@
     - oracle-java6-installer
     - oracle-java7-installer
     - oracle-java8-installer
-  when: java_needs_oracle
+  when: ansible_os_family == 'Debian' and java_needs_oracle 
 
 - name: install java packages
   apt: pkg={{item}} state=latest
   with_items: java_packages
+  when: "ansible_os_family == 'Debian'"
+
+- name: Install openjdk from repo
+  yum: pkg={{item}} state=latest
+  with_items: java_packages
+  when: ansible_os_family == "RedHat"
 
 - name: remove unwanted java packages
   apt: pkg={{item}} state=absent
   with_items: java_packages_to_remove
-  when: java_cleanup
+  when: java_cleanup and ansible_os_family == 'Debian'

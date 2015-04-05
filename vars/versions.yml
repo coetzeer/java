@@ -17,4 +17,6 @@ java_packages_full:
   #- openjdk-7-jre-headless:i386
   #- openjdk-7-jre-zero
   #- openjdk-7-jre-zero:i386
+  - openjdk-8-jdk
+  - openjdk-8-jdk:i386
 java_packages_to_remove: "{{ java_packages_full | difference(java_packages) }}"
